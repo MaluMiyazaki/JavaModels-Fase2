@@ -16,7 +16,8 @@ public class Dashboard {
     public BigDecimal calcularTotalConsolidado() {
         return saldoTotalGeral;
     }
-     public void gerarGraficoDesempenho() {
+
+    public void gerarGraficoDesempenho() {
         
-     }
+    }
 }

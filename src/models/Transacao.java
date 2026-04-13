@@ -12,14 +12,14 @@ public class Transacao {
 
     public Transacao() {}
 
-    public Transacao(Long idTransacao, Long idEmpresa, Long idAtivo, String tipoTransacao, BigDecimal quantidade, BigDecimal valorunitarioNoMomento, LocalDateTime dataHora) {
+    public Transacao(Long idTransacao, Long idEmpresa, Long idAtivo, String tipoTransacao, BigDecimal quantidade, BigDecimal valorunitarioNoMomento) {
         this.idTransacao = idTransacao;
         this.idEmpresa = idEmpresa;
         this.idAtivo = idAtivo;
         this.tipoTransacao = tipoTransacao;
         this.quantidade = quantidade;
         this.valorunitarioNoMomento = valorunitarioNoMomento;
-        this.dataHora = dataHora;
+        this.dataHora = LocalDateTime.now();
     }
 
     public void executarTransacao() {
