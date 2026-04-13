@@ -20,4 +20,14 @@ public class Dashboard {
     public void gerarGraficoDesempenho() {
         
     }
+
+    // --- Getters e Setters ---
+    public Long getIdUsuario() { return idUsuario; }
+    public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
+
+    public BigDecimal getSaldoTotalGeral() { return saldoTotalGeral; }
+    public void setSaldoTotalGeral(BigDecimal saldoTotalGeral) { this.saldoTotalGeral = saldoTotalGeral; }
+
+    public BigDecimal getLucroPrejuizoTotal() { return lucroPrejuizoTotal; }
+    public void setLucroPrejuizoTotal(BigDecimal lucroPrejuizoTotal) { this.lucroPrejuizoTotal = lucroPrejuizoTotal; }
 }

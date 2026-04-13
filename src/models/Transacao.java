@@ -5,24 +5,46 @@ public class Transacao {
     private Long idTransacao;
     private Long idEmpresa;
     private Long idAtivo;
-    private String tipoTransacao;
+    private String tipoDeTransacao; 
     private BigDecimal quantidade;
-    private BigDecimal valorunitarioNoMomento;
+    private BigDecimal valorUnitarioNoMomento; 
     private LocalDateTime dataHora;
 
     public Transacao() {}
 
-    public Transacao(Long idTransacao, Long idEmpresa, Long idAtivo, String tipoTransacao, BigDecimal quantidade, BigDecimal valorunitarioNoMomento) {
+    public Transacao(Long idTransacao, Long idEmpresa, Long idAtivo, String tipoDeTransacao, BigDecimal quantidade, BigDecimal valorUnitarioNoMomento) {
         this.idTransacao = idTransacao;
         this.idEmpresa = idEmpresa;
         this.idAtivo = idAtivo;
-        this.tipoTransacao = tipoTransacao;
+        this.tipoDeTransacao = tipoDeTransacao;
         this.quantidade = quantidade;
-        this.valorunitarioNoMomento = valorunitarioNoMomento;
+        this.valorUnitarioNoMomento = valorUnitarioNoMomento;
         this.dataHora = LocalDateTime.now();
     }
 
     public void executarTransacao() {
         
     }
+
+    // --- Getters e Setters ---
+    public Long getIdTransacao() { return idTransacao; }
+    public void setIdTransacao(Long idTransacao) { this.idTransacao = idTransacao; }
+
+    public Long getIdEmpresa() { return idEmpresa; }
+    public void setIdEmpresa(Long idEmpresa) { this.idEmpresa = idEmpresa; }
+
+    public Long getIdAtivo() { return idAtivo; }
+    public void setIdAtivo(Long idAtivo) { this.idAtivo = idAtivo; }
+
+    public String getTipoDeTransacao() { return tipoDeTransacao; }
+    public void setTipoDeTransacao(String tipoDeTransacao) { this.tipoDeTransacao = tipoDeTransacao; }
+
+    public BigDecimal getQuantidade() { return quantidade; }
+    public void setQuantidade(BigDecimal quantidade) { this.quantidade = quantidade; }
+
+    public BigDecimal getValorUnitarioNoMomento() { return valorUnitarioNoMomento; }
+    public void setValorUnitarioNoMomento(BigDecimal valorUnitarioNoMomento) { this.valorUnitarioNoMomento = valorUnitarioNoMomento; }
+
+    public LocalDateTime getDataHora() { return dataHora; }
+    public void setDataHora(LocalDateTime dataHora) { this.dataHora = dataHora; }
 }
