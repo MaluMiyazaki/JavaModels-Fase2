@@ -5,14 +5,12 @@ public class Main {
     public static void main(String[] args) {
         //Caso seja necessario usar o Scanner, descomentar a proxima linha.
         //Scanner sc = new Scanner(System.in);
-        System.out.println("== TESTE DE USUARIO ==");
+
         // Teste de Usuario
         Usuario usuario = new Usuario(1L, "bruno", "bruno@gmail.com", "senha123");
-        System.out.println("Usuario está logado: " + usuario.login("bruno@gmail.com", "senha123"));
 
         //Teste de Ativo Cripto
         AtivoCripto ativoCripto = new AtivoCripto(1L, "Dolar", "USD", new BigDecimal("5"));
-        System.out.println("Novo preço: " + ativoCripto.atualizarPreco(new BigDecimal("10")));
 
         // Teste de Dashboard
         Dashboard dash = new Dashboard(1L, new BigDecimal("500"), new BigDecimal("100"));
