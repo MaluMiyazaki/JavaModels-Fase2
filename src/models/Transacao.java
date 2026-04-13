@@ -1,5 +1,5 @@
 import java.math.BigDecimal;
-import java.time.LocalDataTime;
+import java.time.LocalDateTime;
 
 public class Transacao {
     private Long idTransacao;
@@ -8,7 +8,19 @@ public class Transacao {
     private String tipoTransacao;
     private BigDecimal quantidade;
     private BigDecimal valorunitarioNoMomento;
-    private LocalDataTime dataHora;
+    private LocalDateTime dataHora;
+
+    public Transacao() {}
+
+    public Transacao(Long idTransacao, Long idEmpresa, Long idAtivo, String tipoTransacao, BigDecimal quantidade, BigDecimal valorunitarioNoMomento, LocalDateTime dataHora) {
+        this.idTransacao = idTransacao;
+        this.idEmpresa = idEmpresa;
+        this.idAtivo = idAtivo;
+        this.tipoTransacao = tipoTransacao;
+        this.quantidade = quantidade;
+        this.valorunitarioNoMomento = valorunitarioNoMomento;
+        this.dataHora = dataHora;
+    }
 
     public void executarTransacao() {
         

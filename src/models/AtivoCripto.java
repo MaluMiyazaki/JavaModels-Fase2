@@ -6,8 +6,17 @@ public class AtivoCripto {
     private String simbolo;
     private BigDecimal precoAtual;
 
-    public void atualizarPreco(BigDecimal novoPreco) {
-        this.precoAtual = novoPreco;
+    public AtivoCripto() {}
+
+    public AtivoCripto(Long idAtivo, String nomeMoeda, String simbolo, BigDecimal precoAtual) {
+        this.idAtivo = idAtivo;
+        this.nomeMoeda = nomeMoeda;
+        this.simbolo = simbolo;
+        this.precoAtual = precoAtual;
+    }
+
+    public BigDecimal atualizarPreco(BigDecimal novoPreco) {
+        return novoPreco;
     }
 
 }

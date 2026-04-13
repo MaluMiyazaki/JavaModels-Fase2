@@ -7,6 +7,16 @@ public class Empresa {
     private String cnpj;
     private BigDecimal saldoFiduciario;
 
+    public Empresa() {}
+
+    public Empresa(Long idEmpresa, String nomeEmpresa, String razaoSocial, String cnpj, BigDecimal saldoFiduciario) {
+        this.idEmpresa = idEmpresa;
+        this.nomeEmpresa = nomeEmpresa;
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.saldoFiduciario = saldoFiduciario;
+    }
+
     public void depositaarFiduciario (BigDecimal valor) {
         this.saldoFiduciario = this.saldoFiduciario.add(valor);
     }

@@ -5,6 +5,14 @@ public class Dashboard {
     private BigDecimal saldoTotalGeral;
     private BigDecimal lucroPrejuizoTotal;
 
+    public Dashboard() {}
+
+    public Dashboard(Long idUsuario, BigDecimal saldoTotalGeral, BigDecimal lucroPrejuizoTotal) {
+        this.idUsuario = idUsuario;
+        this.saldoTotalGeral = saldoTotalGeral;
+        this.lucroPrejuizoTotal = lucroPrejuizoTotal;
+    }
+
     public BigDecimal calcularTotalConsolidado() {
         return saldoTotalGeral;
     }

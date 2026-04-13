@@ -7,6 +7,16 @@ public class Carteira {
     private BigDecimal quantidade; 
     private BigDecimal saldoTotalAtualizado;
 
+    public Carteira() {}
+
+    public Carteira(Long idCarteira, Long idEmpresa, Long idAtivo, BigDecimal quantidade, BigDecimal saldoTotalAtualizado) {
+        this.idCarteira = idCarteira;
+        this.idEmpresa = idEmpresa;
+        this.idAtivo = idAtivo;
+        this.quantidade = quantidade;
+        this.saldoTotalAtualizado = saldoTotalAtualizado;
+    }
+
     public BigDecimal calcularValorTotal(BigDecimal precoAtual) {
         return quantidade.multiply(precoAtual);
     }
