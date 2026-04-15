@@ -18,7 +18,9 @@ public class Dashboard {
     }
 
     public void gerarGraficoDesempenho() {
-        
+        /* Este método deve retornar os dados informados pelo usuário para que possa ser gerado um gráfico mostrando os
+           ganhos ou perdas ao longo do tempo.
+         */
     }
 
     // --- Getters e Setters ---

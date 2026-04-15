@@ -23,7 +23,7 @@ public class Transacao {
     }
 
     public void executarTransacao() {
-        
+        /* Este método deve executar a transação de acordo com o tipo (Compra ou venda) desta transação. */
     }
 
     // --- Getters e Setters ---
