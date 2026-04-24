@@ -12,7 +12,7 @@ public class Usuario {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.senhaCriptografada = senhaCriptografada;
-        this.is2FAAtivo = false;
+        this.is2FAAtivo = is2FAAtivo;
     }
 
     public Usuario(Long idUsuario, String nome, String email, String senhaCriptografada, boolean is2FAAtivo) {
@@ -20,7 +20,7 @@ public class Usuario {
         this.nome = nome;
         this.email = email;
         this.senhaCriptografada = senhaCriptografada;
-        this.is2FAAtivo = false;
+        this.is2FAAtivo = is2FAAtivo;
     }
     // Fim do polimorfismo estatico de construtor
 
