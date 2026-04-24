@@ -16,11 +16,15 @@ public class Empresa {
         this.cnpj = cnpj;
         this.saldoFiduciario = saldoFiduciario;
     }
-
+    // Polimorfismo estaticos no método "depositarFiduciario"
     public void depositarFiduciario(BigDecimal valor) {
         this.saldoFiduciario = this.saldoFiduciario.add(valor);
     }
 
+    public void depositarFiduciario(int valor) {
+        this.saldoFiduciario = this.saldoFiduciario.add(BigDecimal.valueOf(valor));
+    }
+    // Fim do polimorfismo estatico no método
     public BigDecimal consultarSaldo() {
         return saldoFiduciario;
     }

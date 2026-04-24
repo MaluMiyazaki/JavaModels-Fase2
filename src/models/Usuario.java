@@ -5,15 +5,24 @@ public class Usuario {
     private String senhaCriptografada;
     private boolean is2FAAtivo;
 
+    // Polimorfismo estaticos no construtor da classe
     public Usuario() {}
 
-    public Usuario(Long idUsuario, String nome, String email, String senhaCriptografada) {
+    public Usuario(Long idUsuario, String nome, String senhaCriptografada, boolean is2FAAtivo) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.senhaCriptografada = senhaCriptografada;
+        this.is2FAAtivo = false;
+    }
+
+    public Usuario(Long idUsuario, String nome, String email, String senhaCriptografada, boolean is2FAAtivo) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.email = email;
         this.senhaCriptografada = senhaCriptografada;
         this.is2FAAtivo = false;
     }
+    // Fim do polimorfismo estatico de construtor
 
     public boolean login(String email, String senha) {
         return true;
@@ -21,6 +30,11 @@ public class Usuario {
 
     public void ativar2FA() {
         this.is2FAAtivo = true;
+    }
+
+    // Polimorfismo Dinamico com a classe UsuarioVip
+    public String statusDaConta() {
+        return "esta com o status normal";
     }
 
     // --- Getters e Setters ---
