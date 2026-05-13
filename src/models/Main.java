@@ -4,160 +4,97 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        String adicionarDados;
-        int valorSaldo = 0;
-        Long idDoUsuario;
-        String nomeDoUsuario;
-        String emailDoUsuario;
-        String senhaDoUsuario;
-        String autenticacaoDe2FA;
-        boolean auth2FAis;
-        System.out.println("Deseja adicionar os dados ou apenas verificar se o programa roda?");
-        System.out.print("Digite sim para adicionar dados ou não/enter para apenas compilar e verificar: ");
-        adicionarDados = leitor.nextLine();
-        if (adicionarDados.equalsIgnoreCase("sim") || adicionarDados.equalsIgnoreCase("s") || adicionarDados.equalsIgnoreCase("si")) {
-            // Teste de Usuario
-            try {
-                System.out.print("Digite o ID do Usuario: ");
-                idDoUsuario = leitor.nextLong();
-            } catch (Exception e) {
-                System.out.println("Seu ID de Usuario era invalido");
-                idDoUsuario = 1L;
-            }
-            try {
-                System.out.print("Digie o nome de Usuario: ");
-                nomeDoUsuario = leitor.next();
-            } catch (Exception e) {
-                System.out.println("Seu nome de Usuario era invalido");
-                nomeDoUsuario = "Erro";
-            }
-            try {
-                System.out.print("Digite o email: ");
-                emailDoUsuario = leitor.next();
-            } catch (Exception e) {
-                System.out.println("Email invalido");
-                emailDoUsuario = "generico@email.com";
-            }
-            try {
-                System.out.print("Digite sua senha: ");
-                senhaDoUsuario = leitor.next();
-            } catch (Exception e) {
-                System.out.println("Senha invalida");
-                senhaDoUsuario = "senhaGenerica123";
-            }
-            try {
-                System.out.print("O autenticador de 2 fatores esta ativo?: ");
-                autenticacaoDe2FA = leitor.nextLine();
-                if (autenticacaoDe2FA.equals("true") || autenticacaoDe2FA.equals("s") || autenticacaoDe2FA.equals("sim")) {
-                    auth2FAis = true;
-                } else {
-                    auth2FAis = false;
-                }
-            } catch (Exception e) {
-                System.out.println("O valor deve ser true ou false");
-                auth2FAis = false;
-            }
 
-//        Usuario usuario = new Usuario(1L, "Antônio Carvalho", "tiope@patinhas.com", "senha123", false);
-            Usuario usuario = new Usuario(idDoUsuario, nomeDoUsuario, emailDoUsuario, senhaDoUsuario, auth2FAis);
-            System.out.println(usuario.getIdUsuario());
-            System.out.println(usuario.getNome());
-            System.out.println(usuario.getEmail());
-            System.out.println(usuario.getSenhaCriptografada());
-            System.out.println(usuario.isIs2FAAtivo());
-            // Teste de Ativo Cripto
-            AtivoCripto ativoCripto = new AtivoCripto(1L, "Bitcoin", "BTC", new BigDecimal("350000.00"));
+        System.out.println("=== SISTEMA VOLTZ - MISSÃO TIO PATINHAS ===");
+        System.out.println("Deseja inserir dados manualmente? (S/N)");
+        String opcao = leitor.nextLine();
 
-            // Teste de Dashboard
-            Dashboard dash = new Dashboard(1L, new BigDecimal("5000000.00"), new BigDecimal("150000.00"));
-
-            // Teste de Carteira
-            Carteira carteira = new Carteira(1L, 1L, 1L, new BigDecimal("5.00"), new BigDecimal("1750000.00"));
-
-            // Teste de Empresa
-            Empresa empresa = new Empresa(1L, "AgroTech", "Patinhas Agro LTDA", "89013170000114", new BigDecimal("100000.00"));
-            System.out.println("A empresa " + empresa.getNomeEmpresa() + " esta com saldo fiduciario de " + empresa.getSaldoFiduciario());
-            empresa.depositarFiduciario(new BigDecimal("50000"));
-            System.out.println("Novo saldo fiduciario de " + empresa.getSaldoFiduciario());
-            empresa.depositarFiduciario(50000);
-            System.out.println("Novo saldo fiduciario de " + empresa.getSaldoFiduciario());
-            System.out.print("Digite um novo valor para o SaldoFiduciario: ");
-            try {
-                valorSaldo = leitor.nextInt();
-            } catch (Exception e) {
-                System.out.println("Este não é um valor valido");
-                System.out.println(e);
-            } finally {
-                leitor.close();
-            }
-            empresa.depositarFiduciario(valorSaldo);
-            System.out.println("Novo saldo fiduciario de " + empresa.getSaldoFiduciario());
-
-
-
-            // Teste de Transação
-            Transacao transacao = new Transacao(1L, 1L, 1L, "COMPRA", new BigDecimal("2.5"), new BigDecimal("350000.00"));
-
-            // Teste de UsuarioVip
-            UsuarioVip usuariovip = new UsuarioVip();
-            usuariovip.setIdUsuario(1L);
-            usuariovip.setNome("Paulo Nunes");
-            usuariovip.setEmail("em@em.com");
-            usuariovip.setSenhaCriptografada("senha");
-            usuariovip.setIs2FAAtivo(false);
-            usuariovip.setStatus(true);
-            System.out.println(usuariovip.getIdUsuario());
-            System.out.println(usuariovip.getNome());
-            System.out.println(usuariovip.getEmail());
-            System.out.println(usuariovip.getSenhaCriptografada());
-            System.out.println(usuariovip.getStatus());
-            System.out.println("O usuario " + usuario.getNome() + " " + usuario.statusDaConta());
-            System.out.println("O usuario " + usuariovip.getNome() + " " + usuariovip.statusDaConta());
+        if (opcao.equalsIgnoreCase("s") || opcao.equalsIgnoreCase("sim")) {
+            executarComInputs(leitor);
         } else {
-            //Teste de usuario
-            Usuario usuario = new Usuario(1L, "Antônio Carvalho", "tiope@patinhas.com", "senha123", false);
-
-            // Teste de Ativo Cripto
-            AtivoCripto ativoCripto = new AtivoCripto(1L, "Bitcoin", "BTC", new BigDecimal("350000.00"));
-
-            // Teste de Dashboard
-            Dashboard dash = new Dashboard(1L, new BigDecimal("5000000.00"), new BigDecimal("150000.00"));
-
-            // Teste de Carteira
-            Carteira carteira = new Carteira(1L, 1L, 1L, new BigDecimal("5.00"), new BigDecimal("1750000.00"));
-
-            // Teste de Empresa
-            Empresa empresa = new Empresa(1L, "AgroTech", "Patinhas Agro LTDA", "89013170000114", new BigDecimal("100000.00"));
-            System.out.println("A empresa " + empresa.getNomeEmpresa() + " esta com saldo fiduciario de " + empresa.getSaldoFiduciario());
-            empresa.depositarFiduciario(new BigDecimal("50000"));
-            System.out.println("Novo saldo fiduciario de " + empresa.getSaldoFiduciario());
-            empresa.depositarFiduciario(50000);
-            System.out.println("Novo saldo fiduciario de " + empresa.getSaldoFiduciario());
-
-            // Teste de Transação
-            Transacao transacao = new Transacao(1L, 1L, 1L, "COMPRA", new BigDecimal("2.5"), new BigDecimal("350000.00"));
-
-            // Teste de UsuarioVip
-            UsuarioVip usuariovip = new UsuarioVip();
-            usuariovip.setIdUsuario(1L);
-            usuariovip.setNome("Paulo Nunes");
-            usuariovip.setEmail("em@em.com");
-            usuariovip.setSenhaCriptografada("senha");
-            usuariovip.setIs2FAAtivo(false);
-            usuariovip.setStatus(true);
-            System.out.println(usuariovip.getIdUsuario());
-            System.out.println(usuariovip.getNome());
-            System.out.println(usuariovip.getEmail());
-            System.out.println(usuariovip.getSenhaCriptografada());
-            System.out.println(usuariovip.getStatus());
-            System.out.println("O usuario " + usuario.getNome() + " " + usuario.statusDaConta());
-            System.out.println("O usuario " + usuariovip.getNome() + " " + usuariovip.statusDaConta());
-
+            executarTesteAutomatico();
         }
 
+        System.out.println("\nSistema VOLTZ finalizado com sucesso.");
+        leitor.close(); // Fecha o scanner apenas no fim de tudo
+    }
 
+    private static void executarComInputs(Scanner leitor) {
+        // --- TESTE DE USUÁRIO ---
+        try {
+            System.out.println("\n--- Cadastro de Usuário ---");
+            System.out.print("ID: ");
+            Long id = Long.parseLong(leitor.nextLine());
+            System.out.print("Nome: ");
+            String nome = leitor.nextLine();
+            System.out.print("Email: ");
+            String email = leitor.nextLine();
+            System.out.print("Senha: ");
+            String senha = leitor.nextLine();
+            System.out.print("Ativar 2FA? (true/false): ");
+            boolean mfa = Boolean.parseBoolean(leitor.nextLine());
 
+            Usuario usuario = new Usuario(id, nome, email, senha, mfa);
+            System.out.println("Usuário criado: " + usuario.getNome() + " | Status: " + usuario.statusDaConta());
+        } catch (Exception e) {
+            System.err.println("Erro ao criar usuário: Dados inválidos. Usando padrão.");
+        }
 
-        System.out.println("Sistema VOLTZ compilado com sucesso.");
+        // --- TESTE DE EMPRESA E POLIMORFISMO ESTÁTICO ---
+        try {
+            System.out.println("\n--- Cadastro de Empresa ---");
+            System.out.print("Nome da Empresa: ");
+            String nomeEmp = leitor.nextLine();
+            System.out.print("Saldo Inicial: ");
+            BigDecimal saldo = new BigDecimal(leitor.nextLine());
+
+            Empresa empresa = new Empresa(1L, nomeEmp, "Razao Social Ltda", "00.000.000/0001-00", saldo);
+
+            // Testando Polimorfismo Estático (Overload)
+            System.out.print("Valor para depósito (BigDecimal): ");
+            empresa.depositarFiduciario(new BigDecimal(leitor.nextLine()));
+
+            System.out.print("Valor para depósito (int): ");
+            empresa.depositarFiduciario(Integer.parseInt(leitor.nextLine()));
+
+            System.out.println("Saldo final da " + empresa.getNomeEmpresa() + ": R$ " + empresa.getSaldoFiduciario());
+        } catch (Exception e) {
+            System.err.println("Erro na operação da Empresa: " + e.getMessage());
+        }
+
+        // --- TESTE DE ATIVO E TRANSAÇÃO ---
+        try {
+            System.out.println("\n--- Registro de Transação ---");
+            AtivoCripto btc = new AtivoCripto(1L, "Bitcoin", "BTC", new BigDecimal("350000.00"));
+
+            System.out.print("Quantidade para compra: ");
+            BigDecimal qtd = new BigDecimal(leitor.nextLine());
+
+            Transacao t = new Transacao(100L, 1L, 1L, "COMPRA", qtd, btc.getPrecoAtual());
+            System.out.println("Transação realizada em: " + t.getDataHora());
+        } catch (Exception e) {
+            System.err.println("Erro ao processar transação.");
+        }
+    }
+
+    private static void executarTesteAutomatico() {
+        System.out.println("\n--- Executando Testes Automatizados ---");
+
+        try {
+            // Polimorfismo Dinâmico (Override)
+            Usuario uNormal = new Usuario(1L, "João", "joao@email.com", "123", false);
+            UsuarioVip uVip = new UsuarioVip(2L, "Maria VIP", "maria@vip.com", "456", true, true);
+
+            System.out.println("User 1: " + uNormal.statusDaConta());
+            System.out.println("User 2: " + uVip.statusDaConta());
+
+            // Instanciando outros objetos obrigatórios
+            Dashboard dash = new Dashboard(1L, new BigDecimal("10000.00"), new BigDecimal("500.00"));
+            Carteira cart = new Carteira(1L, 1L, 1L, new BigDecimal("0.5"), new BigDecimal("175000.00"));
+
+            System.out.println("Teste de Dashboard e Carteira concluído.");
+        } catch (Exception e) {
+            System.err.println("Erro nos testes automáticos.");
+        }
     }
 }
