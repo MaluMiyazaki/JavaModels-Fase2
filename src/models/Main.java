@@ -89,7 +89,7 @@ public class Main {
             System.out.println("User 2: " + uVip.statusDaConta());
 
             // Instanciando outros objetos obrigatórios
-            Dashboard dash = new Dashboard(1L, new BigDecimal("10000.00"), new BigDecimal("500.00"));
+            Dashboard dash = new Dashboard(100L, 1L, new BigDecimal("10000.00"), new BigDecimal("500.00"));
             Carteira cart = new Carteira(1L, 1L, 1L, new BigDecimal("0.5"), new BigDecimal("175000.00"));
 
             System.out.println("Teste de Dashboard e Carteira concluído.");

@@ -1,13 +1,17 @@
 import java.math.BigDecimal;
 
 public class Dashboard {
+    // Adicionado o idDashboard para bater com a PK do seu diagrama
+    private Long idDashboard;
     private Long idUsuario;
     private BigDecimal saldoTotalGeral;
     private BigDecimal lucroPrejuizoTotal;
 
     public Dashboard() {}
 
-    public Dashboard(Long idUsuario, BigDecimal saldoTotalGeral, BigDecimal lucroPrejuizoTotal) {
+    // Construtor atualizado com o idDashboard
+    public Dashboard(Long idDashboard, Long idUsuario, BigDecimal saldoTotalGeral, BigDecimal lucroPrejuizoTotal) {
+        this.idDashboard = idDashboard;
         this.idUsuario = idUsuario;
         this.saldoTotalGeral = saldoTotalGeral;
         this.lucroPrejuizoTotal = lucroPrejuizoTotal;
@@ -18,12 +22,15 @@ public class Dashboard {
     }
 
     public void gerarGraficoDesempenho() {
-        /* Este método deve retornar os dados informados pelo usuário para que possa ser gerado um gráfico mostrando os
-           ganhos ou perdas ao longo do tempo.
-         */
+        /* Lógica para o gráfico */
     }
 
     // --- Getters e Setters ---
+
+    // Novo Getter e Setter para o ID do Dashboard
+    public Long getIdDashboard() { return idDashboard; }
+    public void setIdDashboard(Long idDashboard) { this.idDashboard = idDashboard; }
+
     public Long getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
 

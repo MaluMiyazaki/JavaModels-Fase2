@@ -7,7 +7,7 @@ public class UsuarioVip extends Usuario {
 
     public UsuarioVip(Long idUsuario, String nome, String email, String senhaCriptografada, boolean is2FAAtivo, boolean status) {
         super(idUsuario, nome, email, senhaCriptografada, is2FAAtivo);
-        this.status = false;
+        this.status = status;
     }
 
     // Polimorfismo Dinamico com a classe Usuario
